@@ -16,6 +16,11 @@
 
 		<ion-button shape="round" color="primary" (click)="uploadFile()" *ngIf="!imageURL" fill="outline">Upload File</ion-button>
 
+		<ion-content padding>
+			<ion-img [src]="image"></ion-img>
+			<ion-button shape="round" color="primary" (click)="takePhoto()" fill="outline">Take Photo</ion-button>
+		   </ion-content>
+
 		<div *ngIf="imageURL">
 			<ion-grid>
 				<ion-row>

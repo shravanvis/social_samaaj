@@ -5,6 +5,8 @@ import { UserService } from '../user.service';
 import { firestore } from 'firebase/app';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { Plugins, CameraResultType, CameraSource } from '@capacitor/core';
 
 @Component({
 	selector: 'app-uploader',
@@ -12,6 +14,11 @@ import { Router } from '@angular/router';
 	styleUrls: ['./uploader.page.scss'],
 })
 export class UploaderPage implements OnInit {
+
+	// for take photo
+	image: SafeResourceUrl;
+
+
 
 	imageURL: string
 	desc: string
@@ -37,7 +44,8 @@ export class UploaderPage implements OnInit {
 		public afstore: AngularFirestore,
 		public user: UserService,
 		private alertController: AlertController,
-		private router: Router) { }
+		private router: Router,
+		private domSanitizer: DomSanitizer) { }
 
 	ngOnInit() {
 	}
@@ -107,5 +115,26 @@ export class UploaderPage implements OnInit {
 			})
 		})
 	}
+
+
+
+
+
+
+
+
+
+	async takePhoto(){
+		const { Camera } = Plugins;
+	
+		const result = await Camera.getPhoto({
+		  quality: 75,
+		  allowEditing: true,
+		  source: CameraSource.Camera,
+		  resultType: CameraResultType.Base64
+		});
+	
+		this.image = this.domSanitizer.bypassSecurityTrustResourceUrl(result && result.base64Data,);
+	  }
 
 }

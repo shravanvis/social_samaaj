@@ -3,7 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-// import { Plugins, CameraResultType, CameraSource } from '@capacitor/core';
+import { Plugins, CameraResultType, CameraSource } from '@capacitor/core';
 
 @Component({
   selector: 'app-home',
@@ -24,16 +24,16 @@ export class HomePage {
   //   this.auth.logout()
   // }
 
-  // async takePhoto(){
-  //   const { Camera } = Plugins;
+  async takePhoto(){
+    const { Camera } = Plugins;
 
-  //   const result = await Camera.getPhoto({
-  //     quality: 75,
-  //     allowEditing: true,
-  //     source: CameraSource.Camera,
-  //     resultType: CameraResultType.Base64
-  //   });
+    const result = await Camera.getPhoto({
+      quality: 75,
+      allowEditing: true,
+      source: CameraSource.Camera,
+      resultType: CameraResultType.Base64
+    });
 
-  //   this.image = this.domSanitizer.bypassSecurityTrustResourceUrl(result && result.base64Data,);
-  // }
+    this.image = this.domSanitizer.bypassSecurityTrustResourceUrl(result && result.base64Data,);
+  }
 }
