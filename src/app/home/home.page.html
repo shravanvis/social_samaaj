@@ -1,19 +1,64 @@
 <ion-header>
-  <ion-toolbar color="light">
+  <ion-toolbar color="danger">
     <ion-title>
       Home
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
- <p>Welcome
-  <!-- <ion-text color="danger" *ngIf="auth.user$ | async as user; else anonymousUser">{{ user.displayName }}</ion-text>  -->
-  to my App.
-</p>
 
-<ion-button slot="start" [routerLink]="['/login']" routerLinkActive="active">
-  LogIn
-  </ion-button>
+
+
+<ion-card>
+  <ion-card-header>
+    <ion-slides>
+      <ion-slide>
+        <ion-img src="../../assets/images/social.jpg"></ion-img>
+      </ion-slide>
+      
+      <ion-slide>
+        <ion-img src="../../assets/images/social2.jpg"></ion-img>
+      </ion-slide>
+        
+      <ion-slide>
+        <ion-img src="../../assets/images/social3.jpg"></ion-img>
+      </ion-slide>>
+    </ion-slides>
+    
+    <ion-card-title size="large" padding>Social Samaaj</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content padding>
+      <ion-text color="danger"><h2>The purpose of Social Samaaj is to make the world more open and connected.</h2></ion-text>
+      </ion-card-content>
+</ion-card>
+
+
+<ion-grid>
+    <ion-row>
+      <ion-col>
+          <ion-title padding>Go to Login Page</ion-title>
+          
+      </ion-col>
+      <ion-col>
+          <ion-button shape="round" shape="round" size="medium" color="danger" [routerLink]="['/login']"
+            routerLinkActive="active">Login</ion-button>
+      </ion-col>
+      </ion-row>
+      </ion-grid>
+
+      <ion-grid>
+          <ion-row>
+            <ion-col>
+                <ion-title padding>Go to Register Page</ion-title>
+                
+            </ion-col>
+            <ion-col>
+                <ion-button shape="round" shape="round" size="medium" color="danger" [routerLink]="['/register']"
+                  routerLinkActive="active">Register</ion-button>
+            </ion-col>
+            </ion-row>
+            </ion-grid>
 <!-- <ion-button slot="start" (click)="logInWithGoogle()" [routerLink]="['/login']" routerLinkActive="active">
   LogIn With Google
   </ion-button>

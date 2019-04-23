@@ -16,26 +16,32 @@ import { UserService } from './user.service';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AuthService } from './auth.service';
 import { ShareModule } from './share.module';
+import { AngularFireFunctionsModule, FunctionsRegionToken } from '@angular/fire/functions';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
-	  BrowserModule, 
+		BrowserModule, 
 	  IonicModule.forRoot(), 
 	  AppRoutingModule,
 	  AngularFireModule.initializeApp(firebaseConfig),
 	  AngularFireAuthModule,
 	  AngularFirestoreModule,
 	  HttpModule,
-	  ShareModule
+		ShareModule,
+		AngularFireFunctionsModule,
+		ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
 	],
   providers: [
     StatusBar,
     SplashScreen,
 	{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
 	UserService,
-	AuthService
+	AuthService,
+	{ provide: FunctionsRegionToken, useValue: 'us-central'}
   ],
   bootstrap: [AppComponent]
 })

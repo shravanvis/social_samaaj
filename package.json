@@ -1,5 +1,5 @@
 {
-  "name": "app",
+  "name": "social_samaaj",
   "version": "0.0.1",
   "author": "shravan kumar vishwakarma",
   "homepage": "http://shravanvishwakarma.com/",
@@ -20,7 +20,9 @@
     "@angular/http": "~7.1.4",
     "@angular/platform-browser": "~7.1.4",
     "@angular/platform-browser-dynamic": "~7.1.4",
+    "@angular/pwa": "^0.13.8",
     "@angular/router": "~7.1.4",
+    "@angular/service-worker": "~7.1.4",
     "@capacitor/cli": "^1.0.0-beta.19",
     "@capacitor/core": "^1.0.0-beta.19",
     "@ionic-native/core": "5.0.0-beta.21",
@@ -29,6 +31,7 @@
     "@ionic/angular": "4.0.0-rc.0",
     "core-js": "^2.5.4",
     "firebase": "^5.7.2",
+    "firebase-tools": "^6.7.1",
     "rxjs": "~6.3.3",
     "zone.js": "~0.8.26"
   },

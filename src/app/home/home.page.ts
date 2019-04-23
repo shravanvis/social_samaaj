@@ -11,9 +11,8 @@ import { AuthService } from '../auth.service';
 })
 export class HomePage {
 
-  // image: SafeResourceUrl;
   
-  constructor(private auth: AuthService,){ }
+  constructor(private auth: AuthService){ }
 
   // logInWithGoogle(){
   //   this.auth.login();
